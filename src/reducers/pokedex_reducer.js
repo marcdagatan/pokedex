@@ -18,7 +18,7 @@ export default (state = DEFAULT_STATE, action) => {
         ...state,
         pokemon: {
           ...state.pokemon,
-          ...mapKeys((pokemon, index) => parseInt(index, 10) + 1, action.payload),
+          ...mapKeys((pokemon, index) => _.size(state.pokemon) + parseInt(index, 10) + 1, action.payload),
         },
       };
     case FETCHING_POKEMON:
