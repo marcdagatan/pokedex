@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { throttle } from 'lodash/fp';
 
-import { save, load } from '../services/localStorage';
 import reducers from '../reducers';
 
 const ENV = process.env.NODE_ENV;
@@ -21,13 +19,7 @@ if (ENV !== 'production' && devToolsCondition) {
 
 const enhancer = composeEnhancers(applyMiddleware(thunk));
 
-const persistedState = load();
-
-const store = createStore(reducers, persistedState, enhancer);
-
-store.subscribe(
-  throttle(500, () => save(store.getState())),
-);
+const store = createStore(reducers, {}, enhancer);
 
 const Root = ({ children }) => <Provider store={store}>{children}</Provider>;
 

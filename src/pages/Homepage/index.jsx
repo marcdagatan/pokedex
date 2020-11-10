@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components';
 
+import Pokedex from '../../containers/PokedexContainer';
 import styles from './styles';
 import Panel from './Panel';
 
@@ -21,11 +22,11 @@ const Homepage = () => {
           <Panel title="Customizations">Custom</Panel>
         </Grid>
         <Grid item xs={12} md={6} lg={5} className={classes.pokedex}>
-          Pokedex
+          <Pokedex />
         </Grid>
       </Grid>
     </Container>
-  )
+  );
 };
 
 export default Homepage;
