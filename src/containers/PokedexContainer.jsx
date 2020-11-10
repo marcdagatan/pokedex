@@ -13,6 +13,7 @@ class PokedexContainer extends Component {
   render = () => (
     <Pokedex
       pokemon={this.props.pokemon}
+      focusedPokemon={this.props.focusedPokemon}
       fetchAPokemon={this.props.fetchSingle}
       fetchPokemon={() => this.props.fetch(100, _.size(this.props.pokemon))}
       fetchingPokemon={this.props.fetchingPokemon}
@@ -25,12 +26,14 @@ PokedexContainer.propTypes = {
   fetch: PropTypes.func.isRequired,
   fetchSingle: PropTypes.func.isRequired,
   pokemon: pokemonPropTypes.isRequired,
+  focusedPokemon: pokemonPropTypes.isRequired,
   fetchingPokemon: PropTypes.bool.isRequired,
   fetchingAPokemon: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ pokedex: { pokemon, fetchingPokemon, fetchingAPokemon } }) => ({
+const mapStateToProps = ({ pokedex: { pokemon, fetchingPokemon, fetchingAPokemon, focusedPokemon } }) => ({
   pokemon,
+  focusedPokemon,
   fetchingPokemon,
   fetchingAPokemon,
 });
