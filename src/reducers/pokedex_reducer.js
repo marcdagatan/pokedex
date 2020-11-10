@@ -1,11 +1,14 @@
 import _ from 'lodash/fp';
 
-import { FETCH_POKEMON } from '../actions/types';
+import { FETCH_POKEMON, FETCHING_POKEMON, FETCH_A_POKEMON, FETCHING_A_POKEMON } from '../actions/types';
 
 const mapKeys = _.mapKeys.convert({ cap: false });
 
 const DEFAULT_STATE = {
   pokemon: {},
+  fetchingPokemon: false,
+  focusedPokemon: {},
+  fetchingAPokemon: false,
 };
 
 export default (state = DEFAULT_STATE, action) => {
@@ -18,6 +21,12 @@ export default (state = DEFAULT_STATE, action) => {
           ...mapKeys((pokemon, index) => parseInt(index, 10) + 1, action.payload),
         },
       };
+    case FETCHING_POKEMON:
+      return { ...state, fetchingPokemon: action.payload };
+    case FETCH_A_POKEMON:
+      return { ...state, focusedPokemon: action.payload };
+    case FETCHING_A_POKEMON:
+      return { ...state, fetchingAPokemon: action.payload };
     default:
       return state;
   }
