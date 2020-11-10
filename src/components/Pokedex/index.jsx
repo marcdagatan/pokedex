@@ -8,7 +8,15 @@ import Pokemon from '../Pokemon';
 import { pokemonPropTypes } from '../../propTypes';
 import styles from './styles';
 
-const Pokedex = ({ pokemon, fetchAPokemon, fetchingPokemon, fetchingAPokemon, fetchPokemon, focusedPokemon }) => {
+const Pokedex = ({
+  pokemon,
+  fetchAPokemon,
+  fetchingPokemon,
+  fetchingAPokemon,
+  fetchPokemon,
+  focusedPokemon,
+  clearFocusedPokemon,
+}) => {
   const hasFocusedPokemon = !_.isEmpty(focusedPokemon);
   const classes = styles();
 
@@ -32,7 +40,7 @@ const Pokedex = ({ pokemon, fetchAPokemon, fetchingPokemon, fetchingAPokemon, fe
       </Grid>
       {hasFocusedPokemon && (
         <Grid item xs={focusedWidth(7)} lg={focusedWidth(8)} xl={focusedWidth(9)}>
-          <Pokemon pokemon={focusedPokemon} />
+          <Pokemon pokemon={focusedPokemon} clearFocusedPokemon={clearFocusedPokemon} />
         </Grid>
       )}
     </Grid>
@@ -46,6 +54,7 @@ Pokedex.propTypes = {
   fetchingPokemon: PropTypes.bool.isRequired,
   fetchingAPokemon: PropTypes.bool.isRequired,
   focusedPokemon: pokemonPropTypes.isRequired,
+  clearFocusedPokemon: PropTypes.func.isRequired,
 };
 
 export default Pokedex;

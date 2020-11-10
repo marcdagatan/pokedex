@@ -1,4 +1,4 @@
-import { FETCH_POKEMON, FETCHING_POKEMON, FETCH_A_POKEMON, FETCHING_A_POKEMON } from './types';
+import { SET_POKEMON, FETCHING_POKEMON, SET_FOCUSED_POKEMON, FETCHING_A_POKEMON } from './types';
 import axios from '../config/axios';
 
 export const fetchPokemon = (limit = 100, offset = 0) => async dispatch => {
@@ -10,7 +10,7 @@ export const fetchPokemon = (limit = 100, offset = 0) => async dispatch => {
       status,
     } = await axios.get(`/pokemon?limit=${limit}&offset=${offset}`);
 
-    if (status === 200) dispatch({ type: FETCH_POKEMON, payload });
+    if (status === 200) dispatch({ type: SET_POKEMON, payload });
 
     dispatch({ type: FETCHING_POKEMON, payload: false });
   } catch (error) {
@@ -26,7 +26,7 @@ export const fetchAPokemon = id => async dispatch => {
   try {
     let { data: payload, status } = await axios.get(`/pokemon/${id}`);
 
-    if (status === 200) dispatch({ type: FETCH_A_POKEMON, payload });
+    if (status === 200) dispatch({ type: SET_FOCUSED_POKEMON, payload });
 
     dispatch({ type: FETCHING_A_POKEMON, payload: false });
   } catch (error) {
@@ -35,3 +35,5 @@ export const fetchAPokemon = id => async dispatch => {
     dispatch({ type: FETCHING_A_POKEMON, payload: false });
   }
 };
+
+export const clearFocusedPokemon = () => dispatch => dispatch({ type: SET_FOCUSED_POKEMON, payload: {} });

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 
 import { Pokedex } from '../components';
-import { fetchPokemon, fetchAPokemon } from '../actions';
+import { fetchPokemon, fetchAPokemon, clearFocusedPokemon } from '../actions';
 import { pokemonPropTypes } from '../propTypes';
 
 class PokedexContainer extends Component {
@@ -18,6 +18,7 @@ class PokedexContainer extends Component {
       fetchPokemon={() => this.props.fetch(100, _.size(this.props.pokemon))}
       fetchingPokemon={this.props.fetchingPokemon}
       fetchingAPokemon={this.props.fetchingAPokemon}
+      clearFocusedPokemon={this.props.clear}
     />
   );
 }
@@ -29,6 +30,7 @@ PokedexContainer.propTypes = {
   focusedPokemon: pokemonPropTypes.isRequired,
   fetchingPokemon: PropTypes.bool.isRequired,
   fetchingAPokemon: PropTypes.bool.isRequired,
+  clear: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ pokedex: { pokemon, fetchingPokemon, fetchingAPokemon, focusedPokemon } }) => ({
@@ -38,6 +40,6 @@ const mapStateToProps = ({ pokedex: { pokemon, fetchingPokemon, fetchingAPokemon
   fetchingAPokemon,
 });
 
-const mapActionsToProps = { fetch: fetchPokemon, fetchSingle: fetchAPokemon };
+const mapActionsToProps = { fetch: fetchPokemon, fetchSingle: fetchAPokemon, clear: clearFocusedPokemon };
 
 export default connect(mapStateToProps, mapActionsToProps)(PokedexContainer);
