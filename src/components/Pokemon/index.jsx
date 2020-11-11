@@ -10,11 +10,7 @@ const Container = styled.div`
   position: relative;
 `;
 
-const ClearContainer = styled.div`
-  position: absolute;
-  top: 0;
-  right: 1rem;
-`;
+const ClearContainer = styled.div``;
 
 const Pokemon = ({ pokemon: { stats, ...pokemon }, clearFocusedPokemon, selectPokemon, myPokemon }) => (
   <Container>

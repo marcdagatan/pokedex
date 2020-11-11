@@ -28,7 +28,7 @@ const Pokedex = ({
 
   return (
     <Grid container className={classes.root}>
-      <Grid item xs={12}>
+      <Grid item xs={12} className={classes.title}>
         <Typography variant="h2">Pokedex</Typography>
       </Grid>
       <Grid item xs={pokedexGridWidth(5)} lg={pokedexGridWidth(4)} xl={pokedexGridWidth(3)} className={classes.panel}>
@@ -41,7 +41,7 @@ const Pokedex = ({
         />
       </Grid>
       {hasFocusedPokemon && (
-        <Grid item xs={focusedWidth(7)} lg={focusedWidth(8)} xl={focusedWidth(9)}>
+        <Grid item xs={focusedWidth(7)} lg={focusedWidth(8)} xl={focusedWidth(9)} className={classes.pokemonPanel}>
           <Pokemon
             pokemon={focusedPokemon}
             clearFocusedPokemon={clearFocusedPokemon}
