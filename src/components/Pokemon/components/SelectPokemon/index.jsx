@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import PokeHeader from '../../../PokeHeader';
 import { pokemonPropTypes } from '../../../../propTypes';
 import randomMessage from '../../../../utils/randomMessage';
+import pokemonSlots from '../../../../static/pokemonSlots';
 
 const SelectPokemon = ({ myPokemon, selectPokemon, pokemon }) => {
   const [open, setOpen] = useState(false);
@@ -20,7 +21,7 @@ const SelectPokemon = ({ myPokemon, selectPokemon, pokemon }) => {
     setOpen(false);
   };
 
-  const renderMyPokemonSelectList = [1, 2, 3, 4, 5, 6].flatMap(number => {
+  const renderMyPokemonSelectList = pokemonSlots.flatMap(number => {
     const existingPokemon = myPokemon[number];
 
     return (
