@@ -11,21 +11,18 @@ const SelectPokemon = ({ myPokemon, selectPokemon, pokemon }) => {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState('');
 
-  const openDialog = () => {
-    setMessage(randomMessage());
-    setOpen(true);
-  };
-
-  const selectAPokemon = number => {
-    selectPokemon(number, pokemon);
-    setOpen(false);
-  };
-
   const renderMyPokemonSelectList = pokemonSlots.flatMap(number => {
     const existingPokemon = myPokemon[number];
 
     return (
-      <ListItem key={number} button onClick={() => selectAPokemon(number)}>
+      <ListItem
+        key={number}
+        button
+        onClick={() => {
+          selectPokemon(number, pokemon);
+          setOpen(false);
+        }}
+      >
         <ListItemAvatar>
           <Avatar>{existingPokemon ? <img src={existingPokemon.sprites.frontDefault} alt="sprite" /> : number}</Avatar>
         </ListItemAvatar>
@@ -36,7 +33,15 @@ const SelectPokemon = ({ myPokemon, selectPokemon, pokemon }) => {
 
   return (
     <>
-      <Button variant="contained" color="primary" disableElevation onClick={openDialog}>
+      <Button
+        variant="contained"
+        color="primary"
+        disableElevation
+        onClick={() => {
+          setMessage(randomMessage());
+          setOpen(true);
+        }}
+      >
         CATCH THIS POKEMON!!!
       </Button>
       <Dialog open={open} onClose={() => setOpen(false)}>
