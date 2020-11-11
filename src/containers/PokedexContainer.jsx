@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 
 import { Pokedex } from '../components';
-import { fetchPokemon, fetchAPokemon, clearFocusedPokemon } from '../actions';
+import { fetchPokemon, fetchAPokemon, clearFocusedPokemon, selectPokemon } from '../actions';
 import { pokemonPropTypes } from '../propTypes';
 
 class PokedexContainer extends Component {
@@ -19,6 +19,8 @@ class PokedexContainer extends Component {
       fetchingPokemon={this.props.fetchingPokemon}
       fetchingAPokemon={this.props.fetchingAPokemon}
       clearFocusedPokemon={this.props.clear}
+      selectPokemon={this.props.select}
+      myPokemon={this.props.myPokemon}
     />
   );
 }
@@ -31,15 +33,26 @@ PokedexContainer.propTypes = {
   fetchingPokemon: PropTypes.bool.isRequired,
   fetchingAPokemon: PropTypes.bool.isRequired,
   clear: PropTypes.func.isRequired,
+  select: PropTypes.func.isRequired,
+  myPokemon: pokemonPropTypes.isRequired,
 };
 
-const mapStateToProps = ({ pokedex: { pokemon, fetchingPokemon, fetchingAPokemon, focusedPokemon } }) => ({
+const mapStateToProps = ({
+  pokedex: { pokemon, fetchingPokemon, fetchingAPokemon, focusedPokemon },
+  myPokemon: { myPokemon },
+}) => ({
   pokemon,
   focusedPokemon,
   fetchingPokemon,
   fetchingAPokemon,
+  myPokemon,
 });
 
-const mapActionsToProps = { fetch: fetchPokemon, fetchSingle: fetchAPokemon, clear: clearFocusedPokemon };
+const mapActionsToProps = {
+  fetch: fetchPokemon,
+  fetchSingle: fetchAPokemon,
+  clear: clearFocusedPokemon,
+  select: selectPokemon,
+};
 
 export default connect(mapStateToProps, mapActionsToProps)(PokedexContainer);
