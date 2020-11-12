@@ -7,29 +7,20 @@ import { MyPokemonGrid } from '../components';
 import { setFocusedMyPokemon } from '../actions';
 
 const MyPokemonGridContainer = props => (
-  <MyPokemonGrid
-    myPokemon={props.myPokemon}
-    setFocusedMyPokemon={props.setFocusedMyPokemon}
-    focusedSlot={props.focusedSlot}
-  />
+  <MyPokemonGrid myPokemon={props.myPokemon} setFocusedMyPokemon={props.setFocusedMyPokemon} focused={props.focused} />
 );
 
 MyPokemonGridContainer.defaultProps = {
-  focusedSlot: null,
+  focused: null,
 };
 
 MyPokemonGridContainer.propTypes = {
   myPokemon: pokemonPropTypes.isRequired,
   setFocusedMyPokemon: PropTypes.func.isRequired,
-  focusedSlot: PropTypes.number,
+  focused: PropTypes.number,
 };
 
-const mapStateToProps = ({
-  myPokemon: {
-    myPokemon,
-    focused: { slotNumber },
-  },
-}) => ({ myPokemon, focusedSlot: slotNumber });
+const mapStateToProps = ({ myPokemon: { myPokemon, focused } }) => ({ myPokemon, focused });
 
 const mapActionsToProps = { setFocusedMyPokemon };
 

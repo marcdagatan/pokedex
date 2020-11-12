@@ -5,5 +5,4 @@ export const selectPokemon = (slot, pokemon) => dispatch =>
 
 export const removePokemon = payload => dispatch => dispatch({ type: REMOVE_POKEMON, payload });
 
-export const setFocusedMyPokemon = (slotNumber = 0, pokemon = {}) => dispatch =>
-  dispatch({ type: SET_FOCUSED_MY_POKEMON, payload: { slotNumber, pokemon } });
+export const setFocusedMyPokemon = (payload = 0) => dispatch => dispatch({ type: SET_FOCUSED_MY_POKEMON, payload });

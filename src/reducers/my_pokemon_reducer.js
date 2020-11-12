@@ -4,7 +4,7 @@ import { SELECT_POKEMON, REMOVE_POKEMON, SET_FOCUSED_MY_POKEMON } from '../actio
 
 const DEFAULT_STATE = {
   myPokemon: {},
-  focused: { slotNumber: 0, pokemon: {} },
+  focused: 0,
 };
 
 export default (state = DEFAULT_STATE, action) => {
