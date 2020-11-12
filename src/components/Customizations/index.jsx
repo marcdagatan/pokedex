@@ -1,9 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import { Container, NoPokemon } from './components';
+import { Container, NoPokemon, Name } from './components';
 import { pokemonPropTypes } from '../../propTypes';
 
-const Customizations = ({ pokemon }) => <Container>{pokemon ? 'hello' : <NoPokemon />}</Container>;
+const Customizations = ({ pokemon, setFocusedMyPokemonNickname }) => (
+  <Container>
+    {pokemon ? (
+      <Name name={pokemon.name} nickname={pokemon.nickname} setNickname={setFocusedMyPokemonNickname} />
+    ) : (
+      <NoPokemon />
+    )}
+  </Container>
+);
 
 Customizations.defaultProps = {
   pokemon: null,
@@ -11,6 +20,7 @@ Customizations.defaultProps = {
 
 Customizations.propTypes = {
   pokemon: pokemonPropTypes,
+  setFocusedMyPokemonNickname: PropTypes.func.isRequired,
 };
 
 export default Customizations;

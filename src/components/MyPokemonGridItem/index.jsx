@@ -12,7 +12,7 @@ const MyPokemonGridItem = ({ pokemon, slot, setFocusedMyPokemon, isFocused }) =>
   >
     {pokemon && (
       <>
-        <Name>{pokemon.name}</Name>
+        <Name>{pokemon.nickname || pokemon.name}</Name>
         <Img src={pokemon.sprites.frontDefault} alt={pokemon.name} />
       </>
     )}
