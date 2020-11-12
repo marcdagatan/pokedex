@@ -4,7 +4,7 @@ export const Container = styled.div`
   position: relative;
   height: 100%;
   width: 100%;
-  background: #444;
+  background: ${props => (props.isFocused ? '#555' : '#444')};
   overflow: hidden;
   transition: all 400ms;
 

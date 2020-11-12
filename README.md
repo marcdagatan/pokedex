@@ -4,15 +4,22 @@
 
 This is a quick project requested by an employer for my interview. Buuuut, I might just continue this if I have time.
 
+## Preview
+
+Web app is live at [https://pokedex-md.netlify.app](https://pokedex-md.netlify.app)
+
 ## Progress (PM)
 
 [https://app.clubhouse.io/marcdagatan/project/2490/pokedex](https://app.clubhouse.io/marcdagatan/project/2490/pokedex)
 
 Tracking progress in Clubhouse, if you'd like to check it out, you may request access from me.
 
-## Preview
-
-Web app is live at [https://pokedex-md.netlify.app](https://pokedex-md.netlify.app)
+EPICS:
+[x] PokeAPI Integration
+[x] Pokedex Feature
+[x] MyPokemon Feature
+[-] Customize MyPokemon Feature
+[ ] Styling
 
 ## Dependencies
 
