@@ -1,5 +1,16 @@
 import React from 'react';
 
-const Customizations = () => <h1>Customizations</h1>;
+import { Container, NoPokemon } from './components';
+import { pokemonPropTypes } from '../../propTypes';
+
+const Customizations = ({ pokemon }) => <Container>{pokemon ? 'hello' : <NoPokemon />}</Container>;
+
+Customizations.defaultProps = {
+  pokemon: null,
+};
+
+Customizations.propTypes = {
+  pokemon: pokemonPropTypes,
+};
 
 export default Customizations;
