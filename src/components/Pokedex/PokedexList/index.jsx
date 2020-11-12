@@ -4,7 +4,7 @@ import { List } from '@material-ui/core';
 import _ from 'lodash/fp';
 
 import PokedexListItem from '../PokedexListItem';
-import { pokemonPropTypes } from '../../propTypes';
+import { pokemonPropTypes } from '../../../propTypes';
 
 const map = _.map.convert({ cap: false });
 

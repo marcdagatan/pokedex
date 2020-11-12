@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Dialog, DialogTitle, List, ListItem, ListItemAvatar, Avatar } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-import PokeHeader from '../../../PokeHeader';
+import PokeHeader from './PokeHeader';
 import { pokemonPropTypes } from '../../../../propTypes';
 import randomMessage from '../../../../utils/randomMessage';
 import pokemonSlots from '../../../../static/pokemonSlots';

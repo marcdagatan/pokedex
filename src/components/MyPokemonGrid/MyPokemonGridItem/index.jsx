@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { pokemonPropTypes } from '../../propTypes';
+import { pokemonPropTypes } from '../../../propTypes';
 
 import { Container, Img, Name, SlotNumber } from './components';
 
