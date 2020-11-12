@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
@@ -7,23 +7,25 @@ import { Pokedex } from '../components';
 import { fetchPokemon, fetchAPokemon, clearFocusedPokemon, selectPokemon } from '../actions';
 import { pokemonPropTypes } from '../propTypes';
 
-class PokedexContainer extends Component {
-  componentDidMount = () => this.props.fetchPokemon();
+const PokedexContainer = props => {
+  useEffect(() => {
+    props.fetchPokemon();
+  }, []);
 
-  render = () => (
+  return (
     <Pokedex
-      pokemon={this.props.pokemon}
-      focusedPokemon={this.props.focusedPokemon}
-      fetchAPokemon={this.props.fetchAPokemon}
-      fetchPokemon={() => this.props.fetchPokemon(100, _.size(this.props.pokemon))}
-      fetchingPokemon={this.props.fetchingPokemon}
-      fetchingAPokemon={this.props.fetchingAPokemon}
-      clearFocusedPokemon={this.props.clearFocusedPokemon}
-      selectPokemon={this.props.selectPokemon}
-      myPokemon={this.props.myPokemon}
+      pokemon={props.pokemon}
+      focusedPokemon={props.focusedPokemon}
+      fetchAPokemon={props.fetchAPokemon}
+      fetchPokemon={() => props.fetchPokemon(100, _.size(props.pokemon))}
+      fetchingPokemon={props.fetchingPokemon}
+      fetchingAPokemon={props.fetchingAPokemon}
+      clearFocusedPokemon={props.clearFocusedPokemon}
+      selectPokemon={props.selectPokemon}
+      myPokemon={props.myPokemon}
     />
   );
-}
+};
 
 PokedexContainer.propTypes = {
   fetchPokemon: PropTypes.func.isRequired,
