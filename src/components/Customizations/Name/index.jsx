@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Create, Check } from '@material-ui/icons';
@@ -19,6 +19,10 @@ const Edit = styled(IconButton)`
 const Name = ({ name, nickname, setNickname }) => {
   const [editing, setEditing] = useState(false);
   const [nicknameState, setNicknameState] = useState(nickname);
+
+  useEffect(() => {
+    setNicknameState(nickname);
+  }, [nickname]);
 
   return (
     <>
