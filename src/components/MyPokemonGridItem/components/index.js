@@ -15,7 +15,7 @@ export const Container = styled.div`
 `;
 
 export const Img = styled.img`
-  height: 100%;
+  height: 120%;
   width: auto;
   position: absolute;
   top: 50%;
@@ -38,12 +38,13 @@ export const Name = styled.div`
 `;
 
 export const SlotNumber = styled.div`
-  color: #555;
+  color: ${props => (props.isFocused ? '#444' : '#555')};
   opacity: 0.7;
-  font-size: 10rem;
+  font-size: 15rem;
   font-weight: 700;
   position: absolute;
-  left: -15px;
-  bottom: -15px;
-  line-height: 9rem;
+  left: -20px;
+  bottom: -20px;
+  line-height: 13rem;
+  transition: all 400ms;
 `;

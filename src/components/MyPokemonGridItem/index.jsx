@@ -10,14 +10,13 @@ const MyPokemonGridItem = ({ pokemon, slot, setFocusedMyPokemon, isFocused }) =>
     onClick={() => pokemon && (isFocused ? setFocusedMyPokemon() : setFocusedMyPokemon(slot, pokemon))}
     isFocused={isFocused}
   >
-    {pokemon ? (
+    {pokemon && (
       <>
         <Name>{pokemon.name}</Name>
         <Img src={pokemon.sprites.frontDefault} alt={pokemon.name} />
       </>
-    ) : (
-      <SlotNumber>{slot}</SlotNumber>
     )}
+    <SlotNumber isFocused={isFocused}>{slot}</SlotNumber>
   </Container>
 );
 
