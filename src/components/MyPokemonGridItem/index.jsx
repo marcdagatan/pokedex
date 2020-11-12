@@ -5,8 +5,11 @@ import { pokemonPropTypes } from '../../propTypes';
 
 import { Container, Img, Name, SlotNumber } from './components';
 
-const MyPokemonGridItem = ({ pokemon, slot }) => (
-  <Container>
+const MyPokemonGridItem = ({ pokemon, slot, setFocusedMyPokemon, isFocused }) => (
+  <Container
+    onClick={() => pokemon && (isFocused ? setFocusedMyPokemon() : setFocusedMyPokemon(slot, pokemon))}
+    isFocused={isFocused}
+  >
     {pokemon ? (
       <>
         <Name>{pokemon.name}</Name>
@@ -20,11 +23,14 @@ const MyPokemonGridItem = ({ pokemon, slot }) => (
 
 MyPokemonGridItem.defaultProps = {
   pokemon: null,
+  isFocused: false,
 };
 
 MyPokemonGridItem.propTypes = {
   pokemon: pokemonPropTypes,
   slot: PropTypes.number.isRequired,
+  setFocusedMyPokemon: PropTypes.func.isRequired,
+  isFocused: PropTypes.bool,
 };
 
 export default MyPokemonGridItem;

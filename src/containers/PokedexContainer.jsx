@@ -8,32 +8,32 @@ import { fetchPokemon, fetchAPokemon, clearFocusedPokemon, selectPokemon } from 
 import { pokemonPropTypes } from '../propTypes';
 
 class PokedexContainer extends Component {
-  componentDidMount = () => this.props.fetch();
+  componentDidMount = () => this.props.fetchPokemon();
 
   render = () => (
     <Pokedex
       pokemon={this.props.pokemon}
       focusedPokemon={this.props.focusedPokemon}
-      fetchAPokemon={this.props.fetchSingle}
-      fetchPokemon={() => this.props.fetch(100, _.size(this.props.pokemon))}
+      fetchAPokemon={this.props.fetchAPokemon}
+      fetchPokemon={() => this.props.fetchPokemon(100, _.size(this.props.pokemon))}
       fetchingPokemon={this.props.fetchingPokemon}
       fetchingAPokemon={this.props.fetchingAPokemon}
-      clearFocusedPokemon={this.props.clear}
-      selectPokemon={this.props.select}
+      clearFocusedPokemon={this.props.clearFocusedPokemon}
+      selectPokemon={this.props.selectPokemon}
       myPokemon={this.props.myPokemon}
     />
   );
 }
 
 PokedexContainer.propTypes = {
-  fetch: PropTypes.func.isRequired,
-  fetchSingle: PropTypes.func.isRequired,
+  fetchPokemon: PropTypes.func.isRequired,
+  fetchAPokemon: PropTypes.func.isRequired,
   pokemon: pokemonPropTypes.isRequired,
   focusedPokemon: pokemonPropTypes.isRequired,
   fetchingPokemon: PropTypes.bool.isRequired,
   fetchingAPokemon: PropTypes.bool.isRequired,
-  clear: PropTypes.func.isRequired,
-  select: PropTypes.func.isRequired,
+  clearFocusedPokemon: PropTypes.func.isRequired,
+  selectPokemon: PropTypes.func.isRequired,
   myPokemon: pokemonPropTypes.isRequired,
 };
 
@@ -48,11 +48,6 @@ const mapStateToProps = ({
   myPokemon,
 });
 
-const mapActionsToProps = {
-  fetch: fetchPokemon,
-  fetchSingle: fetchAPokemon,
-  clear: clearFocusedPokemon,
-  select: selectPokemon,
-};
+const mapActionsToProps = { fetchPokemon, fetchAPokemon, clearFocusedPokemon, selectPokemon };
 
 export default connect(mapStateToProps, mapActionsToProps)(PokedexContainer);
