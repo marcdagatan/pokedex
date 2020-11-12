@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, NoPokemon, Name } from './components';
+import NoPokemon from './NoPokemon';
+import Name from './Name';
+import Container from './Container';
 import { pokemonPropTypes } from '../../propTypes';
 
 const Customizations = ({ pokemon, setFocusedMyPokemonNickname }) => (

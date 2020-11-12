@@ -4,7 +4,7 @@ import { ListItem } from '@material-ui/core';
 import VisibilitySensor from 'react-visibility-sensor';
 import _ from 'lodash/fp';
 
-import { pokemonPropTypes } from '../../propTypes';
+import { pokemonPropTypes } from '../../../propTypes';
 
 const PokedexListItem = ({ pokemon, fetchAPokemon, number, fetchPokemon, triggerFetch }) => (
   <VisibilitySensor onChange={isVisible => isVisible && triggerFetch && fetchPokemon()}>
