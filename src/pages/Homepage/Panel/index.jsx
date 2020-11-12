@@ -10,7 +10,6 @@ const TitleContainer = styled.div`
   padding: 1rem;
   background: #333;
   color: #fff;
-  width: 100%;
   font-weight: 700;
   text-align: center;
 `;

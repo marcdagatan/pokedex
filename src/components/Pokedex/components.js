@@ -4,6 +4,8 @@ import { Grid } from '@material-ui/core';
 export const GridContainer = styled(Grid)`
   height: 100vh;
   overflow: hidden;
+  background: #222;
+  color: #fff;
 `;
 
 export const TitlePanel = styled(Grid)`
