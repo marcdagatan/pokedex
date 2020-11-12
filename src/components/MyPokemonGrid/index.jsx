@@ -8,7 +8,7 @@ import { pokemonPropTypes } from '../../propTypes';
 import pokemonSlots from '../../static/pokemonSlots';
 import styles from './styles';
 
-const MyPokemonGrid = ({ myPokemon, setFocusedMyPokemon, focusedSlot }) => {
+const MyPokemonGrid = ({ myPokemon, setFocusedMyPokemon, focused }) => {
   const classes = styles();
 
   return (
@@ -20,7 +20,7 @@ const MyPokemonGrid = ({ myPokemon, setFocusedMyPokemon, focusedSlot }) => {
               pokemon={myPokemon[slot]}
               slot={slot}
               setFocusedMyPokemon={setFocusedMyPokemon}
-              isFocused={slot === focusedSlot}
+              isFocused={slot === focused}
             />
           </Grid>
         ),
@@ -31,13 +31,13 @@ const MyPokemonGrid = ({ myPokemon, setFocusedMyPokemon, focusedSlot }) => {
 };
 
 MyPokemonGrid.defaultProps = {
-  focusedSlot: 0,
+  focused: 0,
 };
 
 MyPokemonGrid.propTypes = {
   myPokemon: pokemonPropTypes.isRequired,
   setFocusedMyPokemon: PropTypes.func.isRequired,
-  focusedSlot: PropTypes.number,
+  focused: PropTypes.number,
 };
 
 export default MyPokemonGrid;

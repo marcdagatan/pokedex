@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Pokedex from '../../containers/PokedexContainer';
 import MyPokemonGrid from '../../containers/MyPokemonGridContainer';
+import Customizations from '../../containers/CustomizationsContainer';
 import styles from './styles';
 import Panel from './Panel';
 
@@ -22,7 +23,9 @@ const Homepage = () => {
           <Panel title="My Pokemon">
             <MyPokemonGrid />
           </Panel>
-          <Panel title="Customizations">Custom</Panel>
+          <Panel title="Customizations">
+            <Customizations />
+          </Panel>
         </Grid>
         <Grid item xs={12} md={6} lg={5} className={classes.pokedex}>
           <Pokedex />
